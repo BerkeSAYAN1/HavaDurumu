@@ -17,10 +17,31 @@ anlikDerece = soup.find("div", {"class":"anlik-sicaklik-deger ng-binding"})
 anlikHava = soup.find("div", {"class":"anlik-sicaklik-havadurumu-ikonismi ng-binding"})
 anlikNem = soup.find("div", {"class":"anlik-nem-deger-kac ng-binding"})
 
-print(f"""
-İl: {il}/{ilce}
-Tarih: {anlikDurumTarih.text}
-Sıcaklık: {anlikDerece.text}°C
-Hava: {anlikHava.text}
-Nem: %{anlikNem.text}
-""")
+if anlikHava.text == "yağmurlu":
+    print(f"""
+    İl: {il}/{ilce}
+    Tarih: {anlikDurumTarih.text}
+    Sıcaklık: {anlikDerece.text}°C
+    Hava: {anlikHava.text}
+    Nem: %{anlikNem.text}
+    Dikkat hava yağmurlu. Yağmurluk alın.
+    """)
+elif anlikHava.text == "Güneşli":
+    print(f"""
+    İl: {il}/{ilce}
+    Tarih: {anlikDurumTarih.text}
+    Sıcaklık: {anlikDerece.text}°C
+    Hava: {anlikHava.text}
+    Nem: %{anlikNem.text}
+    Dikkat. Hava güneşli.
+    """)
+elif anlikHava.text == "Açık":
+    print(f"""
+    İl: {il}/{ilce}
+    Tarih: {anlikDurumTarih.text}
+    Sıcaklık: {anlikDerece.text}°C
+    Hava: {anlikHava.text}
+    Nem: %{anlikNem.text}
+    Hava açık.
+    """)
+
